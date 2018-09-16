@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Instafeed from './components/Instafeed'
+import Instaform from './components/Instaform';
 
 class App extends Component {
   render() {
@@ -9,11 +9,16 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">QVTSA-Demo</h1>
         </header>
-        <p className="App-intro">
-        <Instafeed/>
-        </p>
+        <div className="container">
+            <div className="row">
+                    <div className="App-intro">
+                        <Instaform/>
+                        <a href="https://www.instagram.com/oauth/authorize/?client_id=81769697b55e450d9527b3ffa60c2447&redirect_uri=http://localhost:3000/&response_type=token">Login</a>
+                    </div>
+            </div>
+        </div>
       </div>
     );
   }
