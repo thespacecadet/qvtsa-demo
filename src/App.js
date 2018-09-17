@@ -15,7 +15,7 @@ class App extends Component {
             <div className="row">
                     <div className="App-intro">
                         <Instaform/>
-                        <a href="https://www.instagram.com/oauth/authorize/?client_id=81769697b55e450d9527b3ffa60c2447&redirect_uri=http://localhost:3000/&response_type=token">Login</a>
+                        <a href="https://www.instagram.com/oauth/authorize/?client_id=81769697b55e450d9527b3ffa60c2447&redirect_uri=https://thespacecadet.github.io/qvtsa-demo/&response_type=token">Login</a>
                     </div>
             </div>
         </div>
