@@ -16,9 +16,21 @@ const isTagFound = function (pictags, formtags) { //checks if two arrays share a
     });
 };
 
+const areAllTagsFound = function (pictags, formtags) { //checks if picture has all tags of form
+    let isfound = true;
+    for (var x=0;x<formtags.length;x++){
+        if (formtags[x] !== '') {
+            if (!pictags.includes(formtags[x])) {
+                return false
+            }
+        }
+    }
+    return isfound;
+};
+
 const checkiflogged = (url) => //warn us when not logged in
 {if (url.includes("access_token")) {
-    console.log("we are logged!")
+    console.log("we are logged in!")
 }
 
 else{
@@ -37,7 +49,7 @@ class Instaform extends Component {
 
     handleSubmit(){ //gets called when submit button is clicked
         let a = document.getElementById('instapics');
-        a.innerHTML = '';
+        a.innerHTML = ''; //erase all prior content
         let url = window.location.href; //take the current url
         checkiflogged(url); //check if access token is on url
         let accessToken = grabToken(url); //take the token from the url
@@ -53,8 +65,9 @@ class Instaform extends Component {
                 ourtags[2] = store.getState().tags.tag3;
                 let i;
                 for (i=0;i<data.data.length; i++){ //go through each found media (picture)
-                    if (isTagFound(data.data[i].tags,ourtags)) { // if current picture has any of the searched tags
+                    if (areAllTagsFound(data.data[i].tags,ourtags)) { // if current picture has any of the searched tags
                         document.getElementById('instapics').insertAdjacentHTML('afterbegin', '<img src="' + data.data[i].images.low_resolution.url + '" />');
+
                     }
                 }
             }

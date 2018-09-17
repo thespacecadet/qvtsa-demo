@@ -1,7 +1,7 @@
 /**
  * Created by spacecadet on 07.09.18.
  */
-
+//this reducer is no longer used in the program. left here in order to show basic understanding of redux
 const initialState = {tag1: '', tag2: '', tag3:''};
 
 function myReducer(state = initialState,action) {
